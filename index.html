@@ -6,7 +6,7 @@
 
 	<title>Hello World!</title>
 	<!-- 網頁標題旁的圖示 -->
-	<link rel="icon" type="image/x-icon" href="icon.ico"/>
+	<link rel="icon" type="image/x-icon" href="image/icon.ico"/>
 	<!-- 設置文檔的字符編碼 -->
 	<meta charset="utf-8">
 	<!-- 螢幕解析度 -->
@@ -15,7 +15,38 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<!-- CSS 選擇器 -->
 	<style type="text/css">
-		.setting{width:500px;padding:10px;border:3px dashed green;margin-top:10px;font-size:20px;background-color:#95f0f3}
+		body {
+			font-size:20px;
+			margin:0px; margin-align:center;
+			background-image:url(image/back.jpg);
+			background-repeat:no-repeat;
+			background-position:50% 50%;
+			background-attachment:fixed;
+			background-color:#030830
+		}
+		table{width:400px;border-collapse:collapse}
+		tr:nth-child(odd){background-color:#c4cfd9}
+		tr:nth-child(even){background-color:#96b5d4}
+		tr:nth-child(1){background-color:green;color:white}
+		td{padding:10px;border-bottom:1px solid #888888}
+		input:focus{border:2px solid red}
+		button:hover{background-color:white}
+		#confirm{padding:5px}
+		.title {
+			padding:20px;
+			font-size:30px;
+			font-weight:bold;
+			text-align:center;
+			color:white;
+			background-color:black
+		}
+		.content {
+			margin-top:30px; margin-left:auto; margin-right:auto;
+			padding:10px; width:500px;
+			border:3px dashed green;
+			background-color:#95f0f3;
+			line-height:30px
+		}
 		.name{font-weight:bold}
 		.keyword{color:red}
 	</style>
@@ -24,13 +55,50 @@
 
 <body>
 
-	<div class="setting">
+	<div class="title">All Knowledge About J.K.Rowling</div>
+
+	<div class="content">
 		
 		<span class="name">J.K.Rowling:</span> Which Harry Potter character is
 		<span class="keyword">gay</span>?<br/>
 		<span class="name">J.K.Rowling:</span> Harry, Ron, or Hermione?<br/>
 		<span class="name">Reader:</span> Maybe Hermione?<br/>
 		<span class="name">J.K.Rowling:</span> LMAO, ALL OF THEM.
+
+	</div>
+
+	<div class="content">
+
+		<table>
+
+			<tr>
+				<td>Web Name</td>
+				<td>Web Link</td>
+			</tr>
+
+			<tr>
+				<td>More about J.K.Rowling</td>
+				<td><a href="https://www.google.com/search?q=J.K.Rowling" target="_blank">Link</a></td>
+			</tr>
+
+			<tr>
+				<td>More about gay</td>
+				<td><a href="https://www.google.com/search?q=your+mom+gay" target="_blank">Link</a></td>
+			</tr>
+
+			<tr>
+				<td>More about Me</td>
+				<td><a href="https://github.com/HayaoGai" target="_blank">Link</a></td>
+			</tr>
+
+		</table>
+
+	</div>
+
+	<div class="content">
+
+		E-mail: <input type="text"/>
+		<button id="confirm">Confirm</button>
 
 	</div>
 
