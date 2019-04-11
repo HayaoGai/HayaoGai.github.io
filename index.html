@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 
@@ -10,28 +10,79 @@
 	<!-- 設置文檔的字符編碼 -->
 	<meta charset="utf-8">
 	<!-- 螢幕解析度 -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<!-- IE 相容性模式 -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- JavaScript -->
+	<script type="text/JavaScript">
+
+        function TextChange(t, c1, c2, c3) {
+            t.style.color = c1;
+            t.innerHTML = c2;
+            t.style.fontSize = c3;
+        }
+
+        function GoToTop() {
+            scrollTo(0, document.documentElement.scrollTop * 0.8);
+            if (document.documentElement.scrollTop > 0)
+                setTimeout(GoToTop, 20);
+        }
+
+        function Start() {
+            setTimeout(() => {
+                alert("Why are you gay?");
+            }, 100);
+
+            var google = document.getElementById("google");
+            if (google.clientWidth > screen.width) {
+                google.style.width = screen.width.toString() + "px";
+                google.style.height = "auto";
+            }
+
+            document.getElementById("back").onclick = () => {
+                history.back();
+            }
+
+            document.getElementById("forward").onclick = () => {
+                history.forward();
+            }
+
+            document.getElementById("reload").onclick = () => {
+                scrollTo(0, 0);
+                location.assign(location.href);
+            }
+
+            document.getElementById("gototop").onclick = () => {
+                GoToTop();
+            }
+
+            document.onkeydown = () => {
+                if (event.keyCode == 113)
+                    console.log("document.documentElement.scrollTop: " + document.documentElement.scrollTop);
+            };
+        }
+
+	</script>
 	<!-- CSS 選擇器 -->
 	<style type="text/css">
 		body {
 			font-size:20px;
-			margin:0px; margin-align:center;
+			margin-top:0px; margin-left:0px; margin-right:0px;
 			background-image:url(image/back.jpg);
 			background-repeat:no-repeat;
 			background-position:50% 50%;
 			background-attachment:fixed;
 			background-color:#030830
 		}
-		table{width:400px;border-collapse:collapse}
-		tr:nth-child(odd){background-color:#c4cfd9}
-		tr:nth-child(even){background-color:#96b5d4}
-		tr:nth-child(1){background-color:green;color:white}
-		td{padding:10px;border-bottom:1px solid #888888}
-		input:focus{border:2px solid red}
-		button:hover{background-color:white}
-		#confirm{padding:5px}
+        main { margin-top:30px }
+        img { display:block; margin:30px auto 0px auto }
+		table { width:400px; border-collapse:collapse; margin:auto }
+		tr:nth-child(odd) { background-color:#c4cfd9 }
+		tr:nth-child(even) { background-color:#96b5d4 }
+		tr:nth-child(1) { background-color:green; color:white }
+		td { padding:10px; border-bottom:1px solid #888888 }
+		input:focus { border:2px solid red }
+		button { padding:5px }
 		.title {
 			padding:20px;
 			font-size:30px;
@@ -41,66 +92,91 @@
 			background-color:black
 		}
 		.content {
-			margin-top:30px; margin-left:auto; margin-right:auto;
-			padding:10px; width:500px;
+			width:auto;
+			padding:10px;
 			border:3px dashed green;
 			background-color:#95f0f3;
 			line-height:30px
 		}
-		.name{font-weight:bold}
-		.keyword{color:red}
+		.name { font-weight:bold }
+		.keyword { color:red }
+
+		/* 手機版面 */
+		@media screen and (max-width:600px) {
+			.title { width:100% }
+			.content { width:90vw; margin-left:auto; margin-right:auto }
+		}
 	</style>
 
 </head>
 
-<body>
+<body onload="Start();">
 
-	<div class="title">All Knowledge About J.K.Rowling</div>
+    <div class="title">All Knowledge About J.K.Rowling</div>
+    
+    <img id="google" src="image/google.gif" alt="google" align="middle" />
 
-	<div class="content">
-		
-		<span class="name">J.K.Rowling:</span> Which Harry Potter character is
-		<span class="keyword">gay</span>?<br/>
-		<span class="name">J.K.Rowling:</span> Harry, Ron, or Hermione?<br/>
-		<span class="name">Reader:</span> Maybe Hermione?<br/>
-		<span class="name">J.K.Rowling:</span> LMAO, ALL OF THEM.
+    <main class="content">
 
-	</div>
+        <div>
+            <span class="name">J.K.Rowling:</span> Which Harry Potter character is <span class="keyword">gay</span>?<br />
+            <span class="name">J.K.Rowling:</span> Harry, Ron, or Hermione?<br />
+            <span class="name">Reader:</span> Maybe Hermione?<br />
+            <span class="name">J.K.Rowling:</span> LMAO, ALL OF THEM.
+        </div>
 
-	<div class="content">
+    </main>
 
-		<table>
+    <main>
+        <div class="content">
+            <table>
+                <tr>
+                    <td>Web Name</td>
+                    <td>Web Link</td>
+                </tr>
+                <tr>
+                    <td>More about J.K.Rowling</td>
+                    <td>
+                        <a href="https://www.google.com/search?q=J.K.Rowling" target="_blank">
+                            <span onmouseover="TextChange(this, 'green', 'GO', '30px');"
+                                  onmouseout="TextChange(this, 'black', 'Link', '20px');">Link</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>More about gay</td>
+                    <td>
+                        <a href="https://www.google.com/search?q=your+mom+gay" target="_blank">
+                            <span onmouseover="TextChange(this, 'green', 'GO', '30px');"
+                                  onmouseout="TextChange(this, 'black', 'Link', '20px');">Link</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>More about Me</td>
+                    <td>
+                        <a href="https://github.com/HayaoGai" target="_blank">
+                            <span onmouseover="TextChange(this, 'green', 'GO', '30px');"
+                                  onmouseout="TextChange(this, 'black', 'Link', '20px');">Link</span>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </main>
 
-			<tr>
-				<td>Web Name</td>
-				<td>Web Link</td>
-			</tr>
+    <main class="content">
+        <div>E-mail:<input type="text" style="margin-left:10px" /></div>
+    </main>
 
-			<tr>
-				<td>More about J.K.Rowling</td>
-				<td><a href="https://www.google.com/search?q=J.K.Rowling" target="_blank">Link</a></td>
-			</tr>
-
-			<tr>
-				<td>More about gay</td>
-				<td><a href="https://www.google.com/search?q=your+mom+gay" target="_blank">Link</a></td>
-			</tr>
-
-			<tr>
-				<td>More about Me</td>
-				<td><a href="https://github.com/HayaoGai" target="_blank">Link</a></td>
-			</tr>
-
-		</table>
-
-	</div>
-
-	<div class="content">
-
-		E-mail: <input type="text"/>
-		<button id="confirm">Confirm</button>
-
-	</div>
+    <main class="content">
+        <div>
+            <button id="back">Back</button><br />
+            <button style="margin-top:10px" id="forward">Forward</button><br />
+            <button style="margin-top:10px" id="reload">Reload</button><br />
+            <button style="margin-top:10px" id="gototop">Go To Top</button>
+        </div>
+    </main>
 
 </body>
 
