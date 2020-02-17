@@ -1,183 +1,23 @@
-﻿<!DOCTYPE html>
+<script src = "https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+<script src = "https://rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.js"></script>
+<script>THREEx.ArToolkitContext.baseURL='https://rawgit.com/jeromeetienne/ar.js/master/three.js/'</script>
 
-<html>
+<body style = 'margin : 0px; overflow: hidden;'>
+	<a-scene embedded artoolkit = 'sourceType: webcam;'>
 
-<head>
+		<a-assets>
+			<a-asset-item id="wolf" src="model/wolf.gltf"/>
+		</a-assets>
 
-	<title>Hello World!</title>
-	<!-- 網頁標題旁的圖示 -->
-	<link rel="icon" type="image/x-icon" href="image/icon.ico"/>
-	<!-- 設置文檔的字符編碼 -->
-	<meta charset="utf-8">
-	<!-- 螢幕解析度 -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<!-- IE 相容性模式 -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<!-- JavaScript -->
-	<script type="text/JavaScript">
+		<a-entity gltf-model="##wolf"/>
 
-        function TextChange(t, c1, c2, c3) {
-            t.style.color = c1;
-            t.innerHTML = c2;
-            t.style.fontSize = c3;
-        }
+		<!--<a-sphere
+			src = "https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg"
+            radius = "0.2"
+            position = "0 0.5 0"
+            segments-height = "53">
+		</a-sphere>-->
 
-        function GoToTop() {
-            scrollTo(0, document.documentElement.scrollTop * 0.8);
-            if (document.documentElement.scrollTop > 0)
-                setTimeout(GoToTop, 20);
-        }
-
-        function Start() {
-            setTimeout(() => {
-                alert("Why are you gay?");
-            }, 100);
-
-            var google = document.getElementById("google");
-            if (google.clientWidth > screen.width) {
-                google.style.width = screen.width.toString() + "px";
-                google.style.height = "auto";
-            }
-
-            document.getElementById("back").onclick = () => {
-                history.back();
-            }
-
-            document.getElementById("forward").onclick = () => {
-                history.forward();
-            }
-
-            document.getElementById("reload").onclick = () => {
-                scrollTo(0, 0);
-                location.assign(location.href);
-            }
-
-            document.getElementById("gototop").onclick = () => {
-                GoToTop();
-            }
-
-            document.onkeydown = () => {
-                if (event.keyCode == 113)
-                    console.log("document.documentElement.scrollTop: " + document.documentElement.scrollTop);
-            };
-        }
-
-	</script>
-	<!-- CSS 選擇器 -->
-	<style type="text/css">
-		body {
-			font-size:20px;
-			margin-top:0px; margin-left:0px; margin-right:0px;
-			background-image:url(image/back.jpg);
-			background-repeat:no-repeat;
-			background-position:50% 50%;
-			background-attachment:fixed;
-			background-color:#030830
-		}
-        main { margin-top:30px }
-        img { display:block; margin:30px auto 0px auto }
-		table { width:400px; border-collapse:collapse; margin:auto }
-		tr:nth-child(odd) { background-color:#c4cfd9 }
-		tr:nth-child(even) { background-color:#96b5d4 }
-		tr:nth-child(1) { background-color:green; color:white }
-		td { padding:10px; border-bottom:1px solid #888888 }
-		input:focus { border:2px solid red }
-		button { padding:5px }
-		.title {
-			padding:20px;
-			font-size:30px;
-			font-weight:bold;
-			text-align:center;
-			color:white;
-			background-color:black
-		}
-		.content {
-			width:auto;
-			padding:10px;
-			border:3px dashed green;
-			background-color:#95f0f3;
-			line-height:30px
-		}
-		.name { font-weight:bold }
-		.keyword { color:red }
-
-		/* 手機版面 */
-		@media screen and (max-width:600px) {
-			.title { width:100% }
-			.content { width:90vw; margin-left:auto; margin-right:auto }
-		}
-	</style>
-
-</head>
-
-<body onload="Start();">
-
-    <div class="title">All Knowledge About J.K.Rowling</div>
-    
-    <img id="google" src="image/google.gif" alt="google" align="middle" />
-
-    <main class="content">
-
-        <div>
-            <span class="name">J.K.Rowling:</span> Which Harry Potter character is <span class="keyword">gay</span>?<br />
-            <span class="name">J.K.Rowling:</span> Harry, Ron, or Hermione?<br />
-            <span class="name">Reader:</span> Maybe Hermione?<br />
-            <span class="name">J.K.Rowling:</span> LMAO, ALL OF THEM.
-        </div>
-
-    </main>
-
-    <main>
-        <div class="content">
-            <table>
-                <tr>
-                    <td>Web Name</td>
-                    <td>Web Link</td>
-                </tr>
-                <tr>
-                    <td>More about J.K.Rowling</td>
-                    <td>
-                        <a href="https://www.google.com/search?q=J.K.Rowling" target="_blank">
-                            <span onmouseover="TextChange(this, 'green', 'GO', '30px');"
-                                  onmouseout="TextChange(this, 'black', 'Link', '20px');">Link</span>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>More about gay</td>
-                    <td>
-                        <a href="https://www.google.com/search?q=your+mom+gay" target="_blank">
-                            <span onmouseover="TextChange(this, 'green', 'GO', '30px');"
-                                  onmouseout="TextChange(this, 'black', 'Link', '20px');">Link</span>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>More about Me</td>
-                    <td>
-                        <a href="https://github.com/HayaoGai" target="_blank">
-                            <span onmouseover="TextChange(this, 'green', 'GO', '30px');"
-                                  onmouseout="TextChange(this, 'black', 'Link', '20px');">Link</span>
-                        </a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </main>
-
-    <main class="content">
-        <div>E-mail:<input type="text" style="margin-left:10px" /></div>
-    </main>
-
-    <main class="content">
-        <div>
-            <button id="back">Back</button><br />
-            <button style="margin-top:10px" id="forward">Forward</button><br />
-            <button style="margin-top:10px" id="reload">Reload</button><br />
-            <button style="margin-top:10px" id="gototop">Go To Top</button>
-        </div>
-    </main>
-
+		<a-marker-camera preset = 'hiro'/>
+	</a-scene>
 </body>
-
-</html>
