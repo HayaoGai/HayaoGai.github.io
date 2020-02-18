@@ -1,23 +1,23 @@
-<script src = "https://aframe.io/releases/0.6.0/aframe.min.js"></script>
-<script src = "https://rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.js"></script>
-<script>THREEx.ArToolkitContext.baseURL='https://rawgit.com/jeromeetienne/ar.js/master/three.js/'</script>
+<html>
 
-<body style = 'margin : 0px; overflow: hidden;'>
-	<a-scene embedded artoolkit = 'sourceType: webcam;'>
+	<head>
+		<script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+		<script src="https://rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.js"></script>
+		<script src="https://unpkg.com/aframe-extras.animation-mixer@3.4.0/dist/aframe-extras.animation-mixer.js"></script>
+	</head>
 
-		<a-assets>
-			<a-asset-item id="wolf" src="model/wolf.gltf"/>
-		</a-assets>
+	<body style = 'margin: 0px; overflow: hidden;'>
+		<a-scene embedded artoolkit = 'sourceType: webcam;'>
 
-		<a-entity gltf-model="##wolf"/>
+			<a-assets>
+				<a-asset-item id="fox" src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Fox/glTF/Fox.gltf"></a-asset-item>
+			</a-assets>
+      
+			<a-gltf-model src="#fox" rotation="0 -90 90" scale="0.01 0.01 0.01" animation-mixer></a-gltf-model>
 
-		<!--<a-sphere
-			src = "https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg"
-            radius = "0.2"
-            position = "0 0.5 0"
-            segments-height = "53">
-		</a-sphere>-->
+			<a-marker-camera type='opa' url='image/pattern-marker.patt'></a-marker-camera>
+		
+		</a-scene>
+	</body>
 
-		<a-marker-camera preset = 'hiro'/>
-	</a-scene>
-</body>
+</html>
