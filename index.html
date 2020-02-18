@@ -15,13 +15,15 @@
 
 			<!-- 先宣告生成模型 -->
 			<a-assets>
-				<a-asset-item id="fox" src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Fox/glTF/Fox.gltf"></a-asset-item>
+				<!--<a-asset-item id="fox" src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Fox/glTF/Fox.gltf"></a-asset-item>-->
+				<a-asset-item id="opa" src="model/OPA1.gltf"></a-asset-item>
 			</a-assets>
 
 			<!-- 偵測掃描圖 -->
 			<a-marker type="pattern" url="marker/pattern-opa.patt">
 				<!-- 掃描到就打開模型 -->
-				<a-gltf-model src="#fox" rotation="0 -90 90" scale="0.01 0.01 0.01" animation-mixer></a-gltf-model>
+				<!--<a-gltf-model src="#fox" rotation="0 -90 90" scale="0.01 0.01 0.01" animation-mixer></a-gltf-model>-->
+				<a-gltf-model src="#opa" scale="1 1 1" animation-mixer></a-gltf-model>
 			</a-marker>
          
 			<a-entity camera></a-entity>
