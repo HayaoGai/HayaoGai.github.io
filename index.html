@@ -1,24 +1,22 @@
 <html>
 
 	<head>
-		<script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
-		<script src="https://rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.js"></script>
+		<script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+		<script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.8/aframe/build/aframe-ar.js"></script>
 		<script src="https://unpkg.com/aframe-extras.animation-mixer@3.4.0/dist/aframe-extras.animation-mixer.js"></script>
 	</head>
 
 	<body style = 'margin: 0px; overflow: hidden;'>
-		<a-scene embedded artoolkit = 'sourceType: webcam;'>
+		<a-scene embedded arjs>
 
 			<a-assets>
 				<a-asset-item id="fox" src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Fox/glTF/Fox.gltf"></a-asset-item>
-				<a-asset-item id="scan" src="audio/scan.mp3"></a-asset-item>
 			</a-assets>
 
-			<a-marker type="pattern" url="pattern-opa.patt">
+			<a-marker type="pattern" patternUrl="image/pattern-opa.patt">
 				<a-gltf-model src="#fox" rotation="0 -90 90" scale="0.01 0.01 0.01" animation-mixer></a-gltf-model>
-				<a-sound src="#scan" autoplay="true"></a-sound>
 			</a-marker>
-				
+         
 			<a-entity camera></a-entity>
 		
 		</a-scene>
