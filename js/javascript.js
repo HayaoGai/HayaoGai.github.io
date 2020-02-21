@@ -23,8 +23,19 @@ window.onload = () => {
     // AR
     marker.addEventListener("markerFound", event => {
         model.setAttribute("position", "0 0 0");
-        model.setAttribute("scale", "3 3 3");
+        model.setAttribute("scale", "0 0 0");
         audio.play();
+        let s = { x: 0, y: 0, z: 0};
+        new TWEEN.Tween(s)
+	    .to({ x: 3, y: 3, z: 3 }, 500)
+	    .easing(TWEEN.Easing.Back.Out)
+        .onUpdate(() => model.setAttribute("scale", `${s.x} ${s.y} ${s.z}`))
+        .delay(750)
+        .start();
+    });
+    marker.addEventListener("markerLost", event => {
+        audio.pause();
+        audio.currentTime = 0; 
     });
     
     // 宣告手勢
