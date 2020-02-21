@@ -1,23 +1,33 @@
 window.onload = () => {
     
-	// Update
-	function Update(time) {
+    function Update(time) {
         requestAnimationFrame(Update);
         TWEEN.update(time);
     }
     requestAnimationFrame(Update);
-
+    
     const canvas = document.querySelectorAll(".a-canvas")[0];
+    const marker = document.querySelectorAll("#marker")[0];
     const model = document.querySelectorAll("#object")[0];
+    const audio = new Audio("audio/generate.mp3");
+    const hammer = new Hammer(canvas);
     const a1 = window.innerWidth * 0.25;
     const a2 = window.innerHeight * 0.25;
     const b = -2;
     const max = 5;
     const min = 1;
     const speed = 0.3;
-    let press, scale;
+    let press = 0;
+    let scale = 1;
 
-    const hammer = new Hammer(canvas);
+    // AR
+    marker.addEventListener("markerFound", event => {
+        model.setAttribute("position", "0 0 0");
+        model.setAttribute("scale", "3 3 3");
+        audio.play();
+    });
+    
+    // 宣告手勢
     hammer.get('pan').set("direction", "Hammer.DIRECTION_ALL");
     hammer.add(new Hammer.Pinch());
     
