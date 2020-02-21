@@ -1,5 +1,12 @@
 window.onload = () => {
     
+	// Update
+	function Update(time) {
+        requestAnimationFrame(Update);
+        TWEEN.update(time);
+    }
+    requestAnimationFrame(Update);
+
     const canvas = document.querySelectorAll(".a-canvas")[0];
     const model = document.querySelectorAll("#object")[0];
     const a1 = window.innerWidth * 0.25;
@@ -17,10 +24,18 @@ window.onload = () => {
     // 移動
     hammer.on("panstart", event => {
         press = 0;
+        let origin = model.getAttribute("position");
+        const x = event.center.x / a1 + b;
+        const z = event.center.y / a2 + b;
+        new TWEEN.Tween(origin)
+	    .to({ x: x, z: z }, 100)
+	    .easing(TWEEN.Easing.Quadratic.Out)
+        .onUpdate(() => model.setAttribute("position", `${origin.x} 0 ${origin.z}`))
+	    .onComplete(() => press++)
+        .start();
     });
     hammer.on("panmove", event => {
-        press += 1;
-        if (press < 3) return;
+        if (press < 1) return;
         const x = event.center.x / a1 + b;
         const z = event.center.y / a2 + b;
         model.setAttribute("position", `${x} 0 ${z}`);
