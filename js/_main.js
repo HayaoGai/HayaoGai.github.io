@@ -1,6 +1,3 @@
-document.write(`<script src="js/tween.js"></script>`);
-document.write(`<script src="js/hammer.js"></script>`);
-
 window.onload = () => {
     
     function Update(time) {

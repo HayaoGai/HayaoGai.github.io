@@ -1,15 +1,9 @@
 <html>
 
 	<head>
-		<!-- A-Frame 腳本 -->
-		<script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
-		<script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.8/aframe/build/aframe-ar.js"></script>
-		<!-- 模型播放動畫 腳本 -->
-		<script src="https://unpkg.com/aframe-extras.animation-mixer@3.4.0/dist/aframe-extras.animation-mixer.js"></script>
-		<!-- 手勢控制 腳本 -->
-        <!-- <script src="https://hammerjs.github.io/dist/hammer.min.js"></script> -->
-		<!-- 補間動畫 腳本 -->
-		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script> -->
+		<script src="js/aframe_v1.0.3.js"></script>
+		<script src="js/aframear_v2.1.8.js"></script>
+		<script src="js/animation_v3.4.0.js"></script>
 	</head>
 
 	<!-- 關掉垂直和水平的視窗移動軸 -->
@@ -31,7 +25,9 @@
 			<a-entity camera></a-entity>
             
 			<!-- 讀取控制模型的手勢腳本 -->
-            <script src="js/main.js"></script>
+            <script src="js/_main.js"></script>
+			<script src="js/hammer_v2.0.8.js"></script>
+			<script src="js/tween_v18.5.0.js"></script>
 		
 		</a-scene>
 	</body>
