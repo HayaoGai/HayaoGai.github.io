@@ -1,3 +1,6 @@
+import TWEEN from 'tween';
+import Hammer from 'hammer';
+
 window.onload = () => {
     
     function Update(time) {
@@ -27,7 +30,7 @@ window.onload = () => {
         audio.play();
         let s = { x: 0, y: 0, z: 0};
         new TWEEN.Tween(s)
-	    .to({ x: 3, y: 3, z: 3 }, 500)
+	    .to({ x: 3, y: 3, z: 3 }, 750)
 	    .easing(TWEEN.Easing.Back.Out)
         .onUpdate(() => model.setAttribute("scale", `${s.x} ${s.y} ${s.z}`))
         .delay(750)
