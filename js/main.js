@@ -1,7 +1,7 @@
-import TWEEN from 'tween.js';
-import HAMMER from 'hammer.js';
-
 window.onload = () => {
+
+	document.write(`<script src="js/tween.js"></script>`);
+	document.write(`<script src="js/hammer.js"></script>`);
     
     function Update(time) {
         requestAnimationFrame(Update);
