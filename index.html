@@ -14,13 +14,13 @@
 
 			<a-assets>
 				<!-- 宣告欲生成的模型 -->
-				<a-asset-item id="model" src="model/OPA.gltf"></a-asset-item>
+				<a-asset-item id="gltf" src="model/OPA.gltf"></a-asset-item>
 			</a-assets>
       
 			<!-- 偵測掃描圖 -->
 			<a-marker id="marker" type="pattern" url="marker/pattern-opa.patt">
 				<!-- 掃描到就顯示模型 -->
-				<a-gltf-model id="object" src="#model" rotation="-45 0 0" scale="3 3 3" animation-mixer></a-gltf-model>
+				<a-gltf-model id="model" src="#gltf" rotation="-45 0 0" scale="3 3 3" animation-mixer></a-gltf-model>
 			</a-marker>
          
 			<a-entity camera></a-entity>
