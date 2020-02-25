@@ -1,18 +1,19 @@
 <html>
 
 	<head>
+		<script src="js/main.js"></script>
 		<script src="js/aframe_v1.0.3.js"></script>
 		<script src="js/aframear_v2.1.8.js"></script>
 		<script src="js/animation_v3.4.0.js"></script>
+		<script src="js/hammer_v2.0.8.js"></script>
+		<script src="js/tween_v18.5.0.js"></script>
 	</head>
 
-	<!-- 關掉垂直和水平的視窗移動軸 -->
 	<body style = 'margin: 0px; overflow: hidden;'>
-		<!-- 關掉 VR 按鈕、debug UI 介面 -->
 		<a-scene vr-mode-ui="enabled: false" embedded arjs='debugUIEnabled: false;'>
 
-			<!-- 宣告欲生成的模型 -->
 			<a-assets>
+				<!-- 宣告欲生成的模型 -->
 				<a-asset-item id="model" src="model/OPA.gltf"></a-asset-item>
 			</a-assets>
       
@@ -23,12 +24,6 @@
 			</a-marker>
          
 			<a-entity camera></a-entity>
-            
-			<!-- 讀取控制模型的手勢腳本 -->
-            <script src="js/main.js"></script>
-			<script src="js/hammer_v2.0.8.js"></script>
-			<script src="js/tween_v18.5.0.js"></script>
-		
 		</a-scene>
 	</body>
 
