@@ -4,7 +4,7 @@
 	'use strict';
 	
 
-	window.onload = () => {
+	window.onload = function() {
 		console.log("ar.js");
 
 		const marker = document.querySelectorAll("#marker")[0];

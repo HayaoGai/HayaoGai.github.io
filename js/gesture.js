@@ -15,7 +15,7 @@
 	let constant1, constant2;
 
 
-	window.onload = () => {
+	window.onload = function() {
 		console.log("gesture.js");
     
 		const model = document.querySelectorAll("#model")[0];

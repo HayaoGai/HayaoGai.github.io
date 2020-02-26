@@ -15,7 +15,7 @@
 	let width, height;
 
 
-	window.onload = () => {
+	window.onload = function() {
 		console.log("main.js");
 		addUI();
 		requestAnimationFrame(onUpdate);
