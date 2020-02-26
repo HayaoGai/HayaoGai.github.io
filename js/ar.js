@@ -4,9 +4,7 @@
 	'use strict';
 	
 
-	window.onload = function() {
-		console.log("ar.js");
-
+	window.onload = () => {
 		const marker = document.querySelectorAll("#marker")[0];
 		const model = document.querySelectorAll("#model")[0];
 		const audio = new Audio(audio/generate.mp3);

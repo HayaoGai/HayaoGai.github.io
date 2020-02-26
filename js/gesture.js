@@ -15,9 +15,7 @@
 	let constant1, constant2;
 
 
-	window.onload = function() {
-		console.log("gesture.js");
-    
+	window.onload = () => {
 		const model = document.querySelectorAll("#model")[0];
 		const hammer = new Hammer(document.querySelectorAll(".a-canvas")[0]);
 		let isDrag, lastScale;
@@ -30,8 +28,8 @@
 	
 
 
-	function onUpdate(time) {
-	    requestAnimationFrame(onUpdate);
+	function onUpdate2(time) {
+	    requestAnimationFrame(onUpdate2);
 
 		// 更新螢幕大小
 		if (width === window.innerWidth && height === window.innerHeight) return;
