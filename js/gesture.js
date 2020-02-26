@@ -15,7 +15,8 @@
 	let constant1, constant2;
 
 
-	window.onload = () => {
+	window.addEventListener("load", () => {
+
 		const model = document.querySelectorAll("#model")[0];
 		const hammer = new Hammer(document.querySelectorAll(".a-canvas")[0]);
 		let isDrag, lastScale;
@@ -24,12 +25,12 @@
 		defineGesture(hammer);
 		listenerDrag(model, hammer, isDrag);
 	    listenerPinch(model, hammer, lastScale);
-	};
+	}
 	
 
 
-	function onUpdate2(time) {
-	    requestAnimationFrame(onUpdate2);
+	function onUpdate(time) {
+	    requestAnimationFrame(onUpdate);
 
 		// 更新螢幕大小
 		if (width === window.innerWidth && height === window.innerHeight) return;

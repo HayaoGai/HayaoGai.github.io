@@ -15,28 +15,15 @@
 	let width, height;
 
 
-	window.onload = () => {
-
-		const marker = document.querySelectorAll("#marker")[0];
-		const model = document.querySelectorAll("#model")[0];
-		const audio = new Audio("audio/generate.mp3");
-		const hammer = new Hammer(document.querySelectorAll(".a-canvas")[0]);
-		let isDrag, lastScale;
-
+	window.addEventListener("load", () => {
 		addUI();
-		found(marker, model, audio);
-		lost(marker, audio);
-		defineGesture(hammer);
-		listenerDrag(model, hammer, isDrag);
-	    listenerPinch(model, hammer, lastScale);
-		requestAnimationFrame(onUpdate1);
-		requestAnimationFrame(onUpdate2);
-	};
+		requestAnimationFrame(onUpdate);
+	}
 	
 
 
-	function onUpdate1(time) {
-	    requestAnimationFrame(onUpdate1);
+	function onUpdate(time) {
+	    requestAnimationFrame(onUpdate);
 		TWEEN.update(time);
 
 		// 更新螢幕大小

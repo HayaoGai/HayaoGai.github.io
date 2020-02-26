@@ -4,14 +4,15 @@
 	'use strict';
 	
 
-	window.onload = () => {
+	window.addEventListener("load", () => {
+	
 		const marker = document.querySelectorAll("#marker")[0];
 		const model = document.querySelectorAll("#model")[0];
 		const audio = new Audio("audio/generate.mp3");
 	    
 		found(marker, model, audio);
 		lost(marker, audio);
-	};
+	});
 
 
 
