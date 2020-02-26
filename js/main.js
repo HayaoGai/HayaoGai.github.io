@@ -9,8 +9,9 @@
     
 		const marker = document.querySelectorAll("#marker")[0];
 		const model = document.querySelectorAll("#model")[0];
+		const canvas = document.querySelectorAll(".a-canvas")[0];
+	    const hammer = new Hammer(canvas);
 		const audio = new Audio("audio/generate.mp3");
-	    const hammer = new Hammer(document.querySelectorAll(".a-canvas")[0]);
 		
 		const c1 = window.innerWidth * 0.25;
 		const c2 = window.innerHeight * 0.25;
