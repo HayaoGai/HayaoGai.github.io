@@ -16,6 +16,7 @@
 
 
 	window.onload = () => {
+		console.log("main.js");
 		addUI();
 		requestAnimationFrame(onUpdate);
 	};

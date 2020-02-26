@@ -16,6 +16,7 @@
 
 
 	window.onload = () => {
+		console.log("gesture.js");
     
 		const model = document.querySelectorAll("#model")[0];
 		const hammer = new Hammer(document.querySelectorAll(".a-canvas")[0]);

@@ -5,6 +5,7 @@
 	
 
 	window.onload = () => {
+		console.log("ar.js");
 
 		const marker = document.querySelectorAll("#marker")[0];
 		const model = document.querySelectorAll("#model")[0];
