@@ -16,23 +16,21 @@
 
 
 	window.onload = () => {
-		addUI();
-		requestAnimationFrame(onUpdate1);
 
 		const marker = document.querySelectorAll("#marker")[0];
 		const model = document.querySelectorAll("#model")[0];
 		const audio = new Audio(audio/generate.mp3);
-		found(marker, model, audio);
-		lost(marker, audio);
-
-		//const model = document.querySelectorAll("#model")[0];
 		const hammer = new Hammer(document.querySelectorAll(".a-canvas")[0]);
 		let isDrag, lastScale;
 
-		requestAnimationFrame(onUpdate2);
+		addUI();
+		found(marker, model, audio);
+		lost(marker, audio);
 		defineGesture(hammer);
 		listenerDrag(model, hammer, isDrag);
 	    listenerPinch(model, hammer, lastScale);
+		requestAnimationFrame(onUpdate1);
+		requestAnimationFrame(onUpdate2);
 	};
 	
 
@@ -70,7 +68,7 @@
         version.style.position = "fixed";
         version.style.right = "10px";
         version.style.bottom = "10px";
-        version.innerHTML = `version_${numbrt}`;
+        version.innerHTML = `version_${number}`;
         document.body.appendChild(version);
 	}
 
