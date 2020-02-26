@@ -19,7 +19,7 @@
 
 		const marker = document.querySelectorAll("#marker")[0];
 		const model = document.querySelectorAll("#model")[0];
-		const audio = new Audio(audio/generate.mp3);
+		const audio = new Audio("audio/generate.mp3");
 		const hammer = new Hammer(document.querySelectorAll(".a-canvas")[0]);
 		let isDrag, lastScale;
 
