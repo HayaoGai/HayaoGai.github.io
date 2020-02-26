@@ -25,7 +25,7 @@
 		defineGesture(hammer);
 		listenerDrag(model, hammer, isDrag);
 	    listenerPinch(model, hammer, lastScale);
-	}
+	});
 	
 
 

@@ -18,7 +18,7 @@
 	window.addEventListener("load", () => {
 		addUI();
 		requestAnimationFrame(onUpdate);
-	}
+	});
 	
 
 
