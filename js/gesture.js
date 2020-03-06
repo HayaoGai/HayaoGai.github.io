@@ -15,23 +15,24 @@
 	let constant1, constant2;
 
 
-	window.addEventListener("load", () => {
-
+	window.addEventListener("load", init);
+	
+	function init() {
+		window.removeEventListener("load", init);
 		const model = document.querySelectorAll("#model")[0];
 		const hammer = new Hammer(document.querySelectorAll(".a-canvas")[0]);
 		let isDrag, lastScale;
-
 		requestAnimationFrame(onUpdate);
 		defineGesture(hammer);
 		listenerDrag(model, hammer, isDrag);
 	    listenerPinch(model, hammer, lastScale);
-	});
+	}
 	
 
 
 	function onUpdate(time) {
 	    requestAnimationFrame(onUpdate);
-
+		TWEEN.update(time);
 		// 更新螢幕大小
 		if (width === window.innerWidth && height === window.innerHeight) return;
 		width = window.innerWidth;
@@ -46,15 +47,13 @@
 	}
 
 	function listenerDrag(model, hammer, isDrag) {
-
+		// Start
 		hammer.on("panstart", e => {
-
 			// 以迴歸分析計算 螢幕座標 → 模型座標
 			const x = e.center.x / constant1 - 2;
 			const z = e.center.y / constant2 - 2;
 			let origin = model.getAttribute("position");
 			isDrag = false;
-			
 			// 在 100 毫秒內，將 origin 補間動畫至 { x, 0, z }
 			new TWEEN.Tween(origin)
 			.to({ x: x, z: z }, 100)
@@ -63,7 +62,7 @@
 			.onComplete(() => isDrag = true) // 完成後 press + 1
 			.start(); // 開始執行
 		});
-		
+		// Move
 		hammer.on("panmove", e => {
 	        if (!isDrag) return;
 			const x = e.center.x / constant1 - 2;
@@ -73,22 +72,21 @@
 	}
 
 	function listenerPinch(model, hammer, lastScale) {
-
+		// Start
 		hammer.on("pinchstart", () => lastScale = 1);
-
+		// Move
 		hammer.on("pinchmove", e => {
-
+			// 不變
 	        if (e.scale === lastScale) return;
-
+			// 放大
 			else if (e.scale > lastScale) {
-				// 放大
 	            lastScale = e.scale;
 				let s = model.getAttribute("scale").x;
 				if (s >= scaleMax) return;
 				s += scaleSpeed;
 				model.setAttribute("scale", `${s} ${s} ${s}`);
+			// 縮小
 			} else {
-				// 縮小
 	            lastScale = e.scale;
 				let s = model.getAttribute("scale").x;
 				if (s <= scaleMin) return;
