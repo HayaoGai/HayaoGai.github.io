@@ -4,7 +4,7 @@
 	'use strict';
 	
 	// 版本號
-	const number = "0.0.1"; 
+	const number = "0.0.2"; 
 
 	
 	window.addEventListener("load", init);

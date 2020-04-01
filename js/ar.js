@@ -19,7 +19,7 @@
 	// 偵測掃描卡
 	function found(marker, model, audio) {
 		marker.addEventListener("markerFound", () => {
-	        // 模型重置
+	    	// 模型重置
 			model.setAttribute("position", "0 0 0");
 			model.setAttribute("scale", "0 0 0");
 			audio.play();
@@ -36,7 +36,7 @@
 
 	// 遺失掃描卡
 	function lost(marker, audio) {
-	    marker.addEventListener("markerLost", () => {
+		marker.addEventListener("markerLost", () => {
 			audio.pause();
 			audio.currentTime = 0; 
 		});
