@@ -177,8 +177,8 @@
 					// 儲存按鈕
 					const save = document.createElement("div");
 					save.style.backgroundImage = "url('image/save.png')";
-					save.style.width = "200px";
-      				save.style.height = "200px";
+					save.style.width = size2;
+      				save.style.height = size2;
       				save.style.position = "fixed";
 					save.style.right = "0px";
 					save.style.bottom = "0px";
@@ -186,8 +186,8 @@
 					// 取消按鈕
 					const cancel = document.createElement("div");
 					cancel.style.backgroundImage = "url('image/cancel.png')";
-					cancel.style.width = "200px";
-      				cancel.style.height = "200px";
+					cancel.style.width = size2;
+      				cancel.style.height = size2;
       				cancel.style.position = "fixed";
 					cancel.style.bottom = "0px";
 					div.appendChild(cancel);
